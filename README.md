@@ -1,10 +1,79 @@
-# Infraquest
-The Community Infrastructure Problem Analyzer is a Python and MySQL-based application designed to organize, manage, and analyze complaints related to public infrastructure. The project focuses on common community problems such as damaged roads, drainage issues, water supply problems, and streetlight failures.
+# Community Infrastructure Problem Analyzer
 
-The system allows infrastructure complaints to be recorded as structured data, making it easier to manage and analyze large numbers of reported issues. Each complaint can contain relevant information such as the location of the problem, issue type, responsible department, and current status. By organizing this information into a structured database, the application helps reduce the difficulty of manually tracking and managing community complaints.
+A Python and MySQL-based application for organizing, analyzing, and reporting community infrastructure complaints such as damaged roads, drainage issues, water supply problems, and streetlight failures.
 
-The application uses **Python** for implementing the system logic and **MySQL** for storing and managing complaint data. The collected information can be analyzed to identify patterns in infrastructure problems based on factors such as location, issue category, responsible department, and complaint status.
+## Features
+- Add new complaints
+- Display all complaint records
+- Generate location-wise reports
+- Generate issue-wise reports
+- Produce department-wise and status-wise summaries
+- Identify recurring problems
+- View open complaints
+- Highlight high-priority locations
+- Generate a complete infrastructure report
 
-The system also generates useful reports from the stored complaint data. These reports can help identify areas with frequent infrastructure problems, track unresolved complaints, and provide a clearer overview of the current condition of reported issues.
+## Project Objective
+The application helps convert public complaints into structured records and provides analysis based on:
+- Location
+- Issue type
+- Responsible department
+- Status of the complaint
 
-The main objective of the project is to provide a simple and organized approach to analyzing community infrastructure complaints. By converting individual complaints into structured and meaningful information, the system can support better monitoring, reporting, and decision-making related to public infrastructure.
+## Tech Stack
+- Python 3
+- MySQL
+- mysql-connector-python
+
+## Setup
+
+1. Install Python dependencies
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Create the MySQL database and table
+
+   Open MySQL and run the SQL commands in `database_setup.sql`.
+
+3. Update the database credentials in `app.py`
+
+   ```python
+   conn = mysql.connector.connect(
+       host="localhost",
+       user="root",
+       password="your_password",
+       database="infrastructure_db"
+   )
+   ```
+
+4. Run the app
+
+   ```bash
+   python app.py
+   ```
+
+## File Structure
+- `app.py` - main application logic
+- `database_setup.sql` - database and table creation script
+- `requirements.txt` - Python package dependencies
+
+## MySQL Database Structure
+The application expects a database named `infrastructure_db` with a table named `complaints`.
+
+## Example Menu Options
+1. Add Complaint
+2. Display All Complaints
+3. Location-wise Report
+4. Issue-wise Report
+5. Department-wise Report
+6. Status-wise Report
+7. Find Recurring Problems
+8. Open Complaints
+9. High Priority Locations
+10. Generate Complete Report
+11. Exit
+
+## Note
+The project uses a hardcoded MySQL connection in `app.py`. For production use, it is better to move credentials into environment variables.
